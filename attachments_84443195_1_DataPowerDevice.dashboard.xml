@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ATTENTION - THIS IS AN AUTOMATICALLY GENERATED FILE -->
+<!-- Manual changes can cause severe problems and system instability -->
+<!-- Apply manual changes only if you have received explicit instructions from dynaTrace Support -->
+<dynatrace version="4.1.0.2911" date="4/11/12 4:30 PM">
+  <dashboardconfig memento.version="4.1.0.2911" icon="com.dynatrace.diagnostics.portlets/icons/date.gif" localizationenabled="false" sessiontype="live" locationassource="false" groupname="" authorname="bmc_admin" opendrilldowninnewdashboard="true" sessionid="preprod.lowes.com" bgcolor="255,255,255,255" modified="1969-12-31T19:00:00-0500" id="188b4192-bead-4e83-9cfa-e89340d215be" revision="00000000-0000-0000-bdee-935fdcc61cd3" source="server://loiadldts01" created="2012-04-11T16:30:57-0400" description="" name="DataPowerDevice" modifiedbyname="bmc_admin" locationascomparesource="false">
+    <reportconfig lines.per.table="100" enabled="true" print.legends="true" orientation="portrait" pagesize="A4" type="PDF" title="" override="false" levels.per.tree="10" description="" print.images="true" formatpdf="com.dynatrace.diagnostics.report.velocity.format.pdfrenderer" />
+    <filter>
+      <criterion completepurepath="true" type="agents" mode="all">
+        <textpattern enabled="true" name="agentname" type="contains" />
+        <textpattern enabled="true" name="agenthost" type="contains" />
+      </criterion>
+      <criterion excludeexternalsubpaths="false" type="api" mode="all" />
+      <criterion type="applications" mode="all" />
+      <criterion showrendering="true" isactive="true" shownetwork="true" showjavascript="true" type="browserpathtype" />
+      <criterion timerenabled="false" pageenabled="false" type="browsersectionfilter">
+        <timername>
+          <stringmatchpattern text="" match="contains" />
+        </timername>
+        <pageurl>
+          <stringmatchpattern text="" match="contains" />
+        </pageurl>
+      </criterion>
+      <criterion type="btm" />
+      <criterion isactive="true" analyzeserverpath="true" type="enduserpath" analyzeenduserpath="true" />
+      <criterion completepurepath="true" type="hosts" mode="all" />
+      <criterion severities="" statesmode="all" severitiesmode="all" states="" rulesmode="all" type="incident" />
+      <criterion type="purepaths" mode="all" />
+      <criterion showrendering="true" isactive="false" contenttypegroupsmode="all" javascripttriggersmode="all" shownetwork="true" showjavascript="true" type="riapurepathtype" requestcriterion="ALL" />
+      <criterion includemeasurename="true" includetestname="true" type="tests" teststatus="OK" />
+      <criterion enabled="false" filterbyid="false" type="threads" />
+      <criterion type="timeframe">
+        <timeframe type="Last 30min" />
+      </criterion>
+      <criterion type="visits">
+        <visitidset visitsidsetsize="0" />
+      </criterion>
+      <criterion type="webpage">
+        <textpattern enabled="true" name="timerName" type="contains" />
+        <textpattern enabled="true" name="pageContext" type="contains" />
+      </criterion>
+      <criterion type="webrequest">
+        <filteruripattern>
+          <stringmatchpattern text="" match="contains" />
+        </filteruripattern>
+        <filterquerypattern>
+          <stringmatchpattern text="" match="contains" />
+        </filterquerypattern>
+      </criterion>
+    </filter>
+    <autorefreshconfig unit="MINUTES" enabled="false" time="5" />
+    <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" descriptionfontsize="8" nameshow="true" clienttheme="DEFAULT" headertype="DEFAULT" namefontsize="10" descriptionshow="true" autoadjustfontsizes="false" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+    <dashboardlayout>
+      <portletfolder relationtype="LEFT" ratio="0.95" folderid="org.eclipse.ui.internal.ViewStack@11c2c30" selectionindex="0" relatedfolderid="DashboardLayout.blankArea" portletconfigorder="35213e0b-7772-4546-8280-27da26784714">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="false" descriptionfontsize="8" nameshow="true" headertype="CUSTOM" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="BOTTOM" ratio="0.5135135" folderid="org.eclipse.ui.internal.ViewStack@1f7e5d6" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@11c2c30" portletconfigorder="7e60b4c6-fa6a-4b95-9551-f47e2d436264">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="false" descriptionfontsize="8" nameshow="true" headertype="CUSTOM" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.49874687" folderid="fdd921d6-a9c6-46b2-b684-99f211d138f6" selectionindex="-1" isplaceholder="true" relatedfolderid="org.eclipse.ui.internal.ViewStack@1f7e5d6" portletconfigorder="" />
+      <portletfolder relationtype="RIGHT" ratio="0.49666667" folderid="22debde9-7d17-4ba7-859a-8a39b3ec7a8d" selectionindex="-1" isplaceholder="true" relatedfolderid="fdd921d6-a9c6-46b2-b684-99f211d138f6" portletconfigorder="" />
+      <portletfolder relationtype="RIGHT" ratio="0.49666667" folderid="org.eclipse.ui.internal.ViewStack@d9ee28" selectionindex="0" relatedfolderid="22debde9-7d17-4ba7-859a-8a39b3ec7a8d" portletconfigorder="2e9df31f-0268-46a8-898f-cb73967a6f4a">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="false" descriptionfontsize="8" nameshow="true" headertype="CUSTOM" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+      <portletfolder relationtype="RIGHT" ratio="0.49874687" folderid="org.eclipse.ui.internal.ViewStack@15100e3" selectionindex="0" relatedfolderid="org.eclipse.ui.internal.ViewStack@11c2c30" portletconfigorder="2717fa29-b67a-4d72-b200-84ca4bec025d">
+        <designconfig descriptionalignment="CENTER" descriptionfontstyle="NORMAL" namealignment="CENTER" inherited="false" descriptionfontsize="8" nameshow="true" headertype="CUSTOM" namefontsize="10" descriptionshow="true" namefontstyle="BOLD" descriptionfontcolor="128,128,128" />
+      </portletfolder>
+    </dashboardlayout>
+    <portletconfig usespecificautorefresh="false" icon="com.dynatrace.diagnostics.sdk/default.gif" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@1f7e5d6" sessiontype="live" locationassource="false" usedashboardsource="true" sessionid="preprod.lowes.com" bgcolor="236,233,216,255" id="7e60b4c6-fa6a-4b95-9551-f47e2d436264" addfilterinfo="false" source="server://loiadldts01" description="" lastvalue="false" name="Connections Accepted" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="3" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="selectedHosts">
+          <hostref address="datapowerdevice" name="datapowerdevice" />
+        </criterion>
+        <criterion type="timeframe">
+          <timeframe type="Last 30min" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap>
+          <inheritanceentry inherited="false" type="hosts" />
+        </inheritancemap>
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="false" time="5" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="ClusteredBarChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" subchartweights="200,200,200,200,200" orientation="Horizontal" lockyaxis="true" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="false" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="5" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="a76059b2-74ab-4747-b557-08297f52a46b" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="ConnectionsAccepted_tenSeconds" sourcecolor="RGB(192,128,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="ConnectionsAccepted_tenSeconds" metricgroupkey="ConnectionsAcceptedMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="ConnectionsAccepted_tenSeconds" metrickeyid="ConnectionsAccepted_tenSeconds" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="a8d90923-15f6-4e93-96fd-bb5251f0ea92" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="ConnectionsAccepted_tenMinutes" sourcecolor="RGB(192,192,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="ConnectionsAccepted_tenMinutes" metricgroupkey="ConnectionsAcceptedMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="ConnectionsAccepted_tenMinutes" metrickeyid="ConnectionsAccepted_tenMinutes" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="3a1940be-2032-4f10-a51c-cd9cbf9de6ae" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="ConnectionsAccepted_oneMinute" sourcecolor="RGB(128,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="ConnectionsAccepted_oneMinute" metricgroupkey="ConnectionsAcceptedMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="ConnectionsAccepted_oneMinute" metrickeyid="ConnectionsAccepted_oneMinute" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="3273651c-e990-48bd-aebc-f94d158b39d5" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="ConnectionsAccepted_oneDay" sourcecolor="RGB(0,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="ConnectionsAccepted_oneDay" metricgroupkey="ConnectionsAcceptedMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="ConnectionsAccepted_oneDay" metrickeyid="ConnectionsAccepted_oneDay" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="55cc69c9-052b-46be-8c91-f51c681ef422" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="ConnectionsAccepted_oneHour" sourcecolor="RGB(192,0,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="ConnectionsAccepted_oneHour" metricgroupkey="ConnectionsAcceptedMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="ConnectionsAccepted_oneHour" metrickeyid="ConnectionsAccepted_oneHour" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="Measure" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig usespecificautorefresh="false" icon="com.dynatrace.diagnostics.sdk/default.gif" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@d9ee28" sessiontype="live" locationassource="false" usedashboardsource="true" sessionid="preprod.lowes.com" bgcolor="236,233,216,255" id="2e9df31f-0268-46a8-898f-cb73967a6f4a" addfilterinfo="false" source="server://loiadldts01" description="" lastvalue="false" name="Enviromental Measures" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="5" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe type="Last 30min" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="false" time="5" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="MeterChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" subchartweights="76,76,76,76,76,76,76,76,76,76,76,76,76" orientation="Horizontal" lockyaxis="true" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="5" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="0436499b-b1bc-49c8-8949-1ee45657fc97" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_CPU1RPM" sourcecolor="RGB(0,64,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_CPU1RPM" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_CPU1RPM" metrickeyid="EnvironmentalSensors_CPU1RPM" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="8" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="4ba7abb7-e81f-4e3b-ab4e-4213f04ea4a9" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_CPU2Temp" sourcecolor="RGB(192,192,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_CPU2Temp" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_CPU2Temp" metrickeyid="EnvironmentalSensors_CPU2Temp" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="7" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="747d9d78-75ae-40fe-8c97-0b4edfa18d4e" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_CPU2RPM" sourcecolor="RGB(0,192,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_CPU2RPM" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_CPU2RPM" metrickeyid="EnvironmentalSensors_CPU2RPM" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="d4a2385e-8d27-4d2c-b5ab-d319891d4737" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Chassis1RPM" sourcecolor="RGB(128,0,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Chassis1RPM" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Chassis1RPM" metrickeyid="EnvironmentalSensors_Chassis1RPM" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="11" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="ba1123d8-88c0-4161-b950-451561fb9713" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Volt12" sourcecolor="RGB(128,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Volt12" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Volt12" metrickeyid="EnvironmentalSensors_Volt12" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="9" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="1375ba88-9388-4828-a97a-acbb0e506c47" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_PowerSupplyOk" sourcecolor="RGB(192,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_PowerSupplyOk" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_PowerSupplyOk" metrickeyid="EnvironmentalSensors_PowerSupplyOk" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="10" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="5315eb55-ce33-4aba-97f3-25f208aae249" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_systemTemp" sourcecolor="RGB(192,192,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_systemTemp" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_systemTemp" metrickeyid="EnvironmentalSensors_systemTemp" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="6" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="ac792c7f-3252-431a-9d27-7ff53b71950f" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_CPU1Temp" sourcecolor="RGB(64,64,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_CPU1Temp" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_CPU1Temp" metrickeyid="EnvironmentalSensors_CPU1Temp" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="12" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="56ffa7b9-c311-4391-a917-5531761a8606" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Volt33" sourcecolor="RGB(0,64,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Volt33" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Volt33" metrickeyid="EnvironmentalSensors_Volt33" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="3bd091df-81ad-4da5-9e81-8417821756f4" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_CaseOpen" sourcecolor="RGB(192,0,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_CaseOpen" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_CaseOpen" metrickeyid="EnvironmentalSensors_CaseOpen" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="39eb6d9e-65ff-4a80-a40d-fc66a11f7fcf" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Chassis2RPM" sourcecolor="RGB(0,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Chassis2RPM" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Chassis2RPM" metrickeyid="EnvironmentalSensors_Chassis2RPM" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="d612ae54-fb97-4357-8e3a-f38ca95951e7" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Chassis3RPM" sourcecolor="RGB(64,192,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Chassis3RPM" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Chassis3RPM" metrickeyid="EnvironmentalSensors_Chassis3RPM" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="13" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="3353c029-6cf7-41ee-9aae-e51a3b4a6467" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="EnvironmentalSensors_Volt5" sourcecolor="RGB(192,128,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="EnvironmentalSensors_Volt5" metricgroupkey="EnvironmentalSensorsMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="EnvironmentalSensors_Volt5" metrickeyid="EnvironmentalSensors_Volt5" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="Measure" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="true" hidden="false" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig usespecificautorefresh="false" icon="com.dynatrace.diagnostics.sdk/default.gif" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@11c2c30" sessiontype="live" locationassource="false" usedashboardsource="false" sessionid="preprod.lowes.com" bgcolor="236,233,216,255" id="35213e0b-7772-4546-8280-27da26784714" addfilterinfo="false" source="server://loiadldts01" description="" lastvalue="false" name="Cpu Usage Measures" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="4" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe type="Last 30min" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="false" time="5" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" bounds.y.lower="0.0" charttype="MeterChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="true" axis.y.show="true" subchartweights="200,200,200,200,200" orientation="Horizontal" lockyaxis="true" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="true" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="5" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="percent" groupingvalue="" id="9c894d32-b8c0-4080-8ce3-ed099969bf1b" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="CPUUsage_tenSeconds" sourcecolor="RGB(192,128,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="percent" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="CPUUsage_tenSeconds" metricgroupkey="CPUUsageMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="CPUUsage_tenSeconds" metrickeyid="CPUUsage_tenSeconds" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="percent" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="percent" groupingvalue="" id="e1e7f037-bc88-41fb-b890-d5f5901964bd" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="CPUUsage_oneDay" sourcecolor="RGB(0,128,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="percent" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="CPUUsage_oneDay" metricgroupkey="CPUUsageMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="CPUUsage_oneDay" metrickeyid="CPUUsage_oneDay" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="percent" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="percent" groupingvalue="" id="243a752b-6504-43b3-964a-90aefef95c8c" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="CPUUsage_tenMinutes" sourcecolor="RGB(192,0,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="percent" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="CPUUsage_tenMinutes" metricgroupkey="CPUUsageMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="CPUUsage_tenMinutes" metrickeyid="CPUUsage_tenMinutes" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="percent" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="percent" groupingvalue="" id="74e88b3a-5f65-4589-8297-c65a5c5c991e" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="CPUUsage_oneHour" sourcecolor="RGB(0,0,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="percent" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="CPUUsage_oneHour" metricgroupkey="CPUUsageMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="CPUUsage_oneHour" metrickeyid="CPUUsage_oneHour" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="percent" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="percent" groupingvalue="" id="df72edb1-14ab-4d7f-926b-96ce436a9118" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="false" name="CPUUsage_oneMinute" sourcecolor="RGB(0,64,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="percent" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="CPUUsage_oneMinute" metricgroupkey="CPUUsageMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="CPUUsage_oneMinute" metrickeyid="CPUUsage_oneMinute" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="percent" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="Measure" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+    <portletconfig usespecificautorefresh="false" icon="com.dynatrace.diagnostics.sdk/default.gif" usedashboardsourceforcompare="true" folderid="org.eclipse.ui.internal.ViewStack@15100e3" sessiontype="live" locationassource="false" usedashboardsource="false" sessionid="preprod.lowes.com" bgcolor="236,233,216,255" id="2717fa29-b67a-4d72-b200-84ca4bec025d" addfilterinfo="false" source="server://loiadldts01" description="" lastvalue="false" name="Memory Measures" typeid="com.dynatrace.diagnostics.portlets.chart.Chart" ismaster="false" showabsolutevalues="false" locationascomparesource="false">
+      <reportconfig lines.per.table="100" print.legends="true" enabled="true" levels.per.tree="10" override="false" print.images="true" reportposition="6" />
+      <filter>
+        <criterion completepurepath="true" type="agents" mode="all">
+          <textpattern enabled="true" name="agentname" type="contains" />
+          <textpattern enabled="true" name="agenthost" type="contains" />
+        </criterion>
+        <criterion type="applications" mode="all" />
+        <criterion completepurepath="true" type="hosts" mode="all" />
+        <criterion type="timeframe">
+          <timeframe type="Last 30min" />
+        </criterion>
+        <criterion type="visits">
+          <visitidset visitsidsetsize="0" />
+        </criterion>
+        <inheritancemap />
+      </filter>
+      <autorefreshconfig unit="MINUTES" enabled="false" time="5" />
+      <sashconfig weights="500,500" displayoption="CHART" />
+      <datamodelconfig>
+        <chart maxdisplayitems="10" axis.x.title="" legendposition="Bottom" zoomable="true" showtooltips="true" charttype="MeterChart" resolution="Auto" isentitymarkable="false" title="" showlabels="true" yaxisalignment="0" showname="true" splitcharts="true" bounds.y.enabled="false" axis.y.show="true" subchartweights="166,166,166,166,166,166" orientation="Horizontal" lockyaxis="true" axis.y.title="" axis.y.title.show="true" limititems="false" axis.x.show="true" axis.x.title.show="true" logxaxis="false" showheatfield="false" showvalues="false" showtitle="false" showlegend="true">
+          <legendcomposition measure="true">
+            <pielabelcomposition unit="true" value="true" />
+          </legendcomposition>
+          <chartsource position="6" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="kilobytes" groupingvalue="" id="b0d8920b-f5e0-496d-8600-241cf0e85555" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="MemoryStatus_UsedMemory" sourcecolor="RGB(64,64,128,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="kilobytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_UsedMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_UsedMemory" metrickeyid="MemoryStatus_UsedMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="4458a718-2380-4fcd-a895-cf8a52bc2b73" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="a723b7c7-c9b9-37d2-98d2-3915d021ee09" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_FreeMemory" sourcecolor="RGB(127,222,33,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="megabytes" systemid="preprod.lowes.com" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_FreeMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="datapowerdevice" parentkeyid="MemoryStatus_FreeMemory" metrickeyid="MemoryStatus_FreeMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo agenthost="datapowerdevice" monitorhost="datapowerdevice" monitordetails="Data Power Monitor" agentname="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="54be6f37-c811-4235-93fa-cc20bd7cee4a" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="e7a9eb15-4515-3cfb-b58f-48ba3fcd5e3b" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_ReqMemory" sourcecolor="RGB(178,65,26,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="megabytes" systemid="preprod.lowes.com" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_ReqMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="datapowerdevice" parentkeyid="MemoryStatus_ReqMemory" metrickeyid="MemoryStatus_ReqMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo agenthost="datapowerdevice" monitorhost="datapowerdevice" monitordetails="Data Power Monitor" agentname="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="2" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="kilobytes" groupingvalue="" id="ab1a1df4-fae6-4481-afe0-bac1734b49dc" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="MemoryStatus_HoldMemory" sourcecolor="RGB(192,0,64,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="kilobytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_HoldMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_HoldMemory" metrickeyid="MemoryStatus_HoldMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="4" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="e941b272-2176-4a2c-bbce-0d4736cffee9" fetchmeasurecolor="true" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_TotalMemory" sourcecolor="RGB(64,0,192,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="megabytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_TotalMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_TotalMemory" metrickeyid="MemoryStatus_TotalMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="ab1a1df4-fae6-4481-afe0-bac1734b49dc" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="40c19979-98f9-36aa-8442-b6d7e6bc81d8" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_HoldMemory" sourcecolor="RGB(20,133,106,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="megabytes" systemid="preprod.lowes.com" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_HoldMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="datapowerdevice" parentkeyid="MemoryStatus_HoldMemory" metrickeyid="MemoryStatus_HoldMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo agenthost="datapowerdevice" monitorhost="datapowerdevice" monitordetails="Data Power Monitor" agentname="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="1" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="4458a718-2380-4fcd-a895-cf8a52bc2b73" fetchmeasurecolor="true" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_FreeMemory" sourcecolor="RGB(64,64,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="megabytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_FreeMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_FreeMemory" metrickeyid="MemoryStatus_FreeMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="b0d8920b-f5e0-496d-8600-241cf0e85555" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="ecaae422-b057-3894-ae05-1998e0fe5f7a" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_UsedMemory" sourcecolor="RGB(127,222,33,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="megabytes" systemid="preprod.lowes.com" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_UsedMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="datapowerdevice" parentkeyid="MemoryStatus_UsedMemory" metrickeyid="MemoryStatus_UsedMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo agenthost="datapowerdevice" monitorhost="datapowerdevice" monitordetails="Data Power Monitor" agentname="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="-1" scale="0" visible="true" sessiontype="live" parentid="e941b272-2176-4a2c-bbce-0d4736cffee9" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="595c9380-e923-3d01-ba34-fe873c37ef2f" fetchmeasurecolor="false" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_TotalMemory" sourcecolor="RGB(235,235,122,255)" sourcetype="MEASURE" dynamicconfig="true" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" unit="megabytes" systemid="preprod.lowes.com" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_TotalMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="datapowerdevice" parentkeyid="MemoryStatus_TotalMemory" metrickeyid="MemoryStatus_TotalMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo agenthost="datapowerdevice" monitorhost="datapowerdevice" monitordetails="Data Power Monitor" agentname="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="3" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="megabytes" groupingvalue="" id="54be6f37-c811-4235-93fa-cc20bd7cee4a" fetchmeasurecolor="true" overridesource="true" rate="10s" ratesupported="true" name="MemoryStatus_ReqMemory" sourcecolor="RGB(64,128,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="megabytes" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_ReqMemory" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_ReqMemory" metrickeyid="MemoryStatus_ReqMemory" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="kilobytes" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <chartsource position="5" scale="0" visible="false" sessiontype="live" colorinheritancemode="random" aggregationtype="Avg" uiunit="number" groupingvalue="" id="a51a7a90-3a4c-4ee2-be01-a2e156f54ad9" fetchmeasurecolor="true" overridesource="false" rate="10s" ratesupported="true" name="MemoryStatus_Usage" sourcecolor="RGB(0,0,0,255)" sourcetype="MEASURE" dynamicconfig="false" autounit="false" sessionid="preprod.lowes.com" groupingcriterion="AgentOrMonitor" displayrate="10s" systemid="preprod.lowes.com" unit="number" measuretype="MonitorMeasure" fetch.dynamic.measures="true" fetchthreshold="false" autoscale="false">
+            <lightweightuniquemeasureidentifier keyid="MemoryStatus_Usage" metricgroupkey="MemoryStatusMeasures" collector="" systemid="preprod.lowes.com" application="" agenthost="" parentkeyid="MemoryStatus_Usage" metrickeyid="MemoryStatus_Usage" agentname="Data Power Monitor" />
+            <displaysourceinfo monitorhost="&lt;all-hosts&gt;" monitordetails="Data Power Monitor" measureunit="number" monitorscheduleid="Data Power Monitor" measurerate="purepath" />
+          </chartsource>
+          <splitconfig splitmode="PerSeries" splitlayout="Horizontal" />
+        </chart>
+        <table drawcolumn="-1" sortcolumn="0" structuremode="measureHierarchy" columnorder="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19">
+          <column index="0" sort="Up" forcevisible="false" hidden="false" width="400" />
+          <column index="1" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="2" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="3" sort="None" forcevisible="false" hidden="false" width="25" />
+          <column index="4" sort="None" forcevisible="false" hidden="false" width="100" />
+          <column index="5" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="6" sort="None" forcevisible="false" hidden="false" width="50" />
+          <column index="7" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="8" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="9" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="10" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="11" sort="None" forcevisible="false" hidden="true" width="75" />
+          <column index="12" sort="None" forcevisible="false" hidden="true" width="100" />
+          <column index="13" sort="None" forcevisible="false" hidden="false" width="105" />
+          <column index="14" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="15" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="16" sort="None" forcevisible="false" hidden="true" width="50" />
+          <column index="17" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="18" sort="None" forcevisible="false" hidden="true" width="150" />
+          <column index="19" sort="None" forcevisible="false" hidden="true" width="150" />
+        </table>
+        <heatfieldconfig smartmeasure="true" filterconfirmed="false" smartserver="true" customevents="true">
+          <incidentrules />
+        </heatfieldconfig>
+      </datamodelconfig>
+      <chartcolors />
+    </portletconfig>
+  </dashboardconfig>
+</dynatrace>
+
