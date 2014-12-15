@@ -18,7 +18,7 @@ This plugin enables monitoring of the WebSphere Data Power SOA Appliance. The pl
 | License | [dynaTrace BSD](dynaTraceBSD.txt)
 | Support | [Not Supported](https://community.compuwareapm.com/community/display/DL/Support+Levels)
 | Release History | 2012-06-25 1.0.1 Initial Release
-| Download | [WebSphere DataPower Monitor Plugin for dynaTrace](dynatrace.diagnostics.plugin.DataPowerMonitor.jar)  
+| Download | [WebSphere DataPower Monitor Plugin for dynaTrace](com.dynatrace.diagnostics.plugin.DataPowerMonitor.jar)  
 | | [Data Power Monitor Dashboard ](DataPowerDevice.dashboard.xml)
 
 ## Dashboards
@@ -30,7 +30,7 @@ The following image shows the attached dashboard including all metrics that the 
 ## Installation
 
 Import the Plugin into the dynaTrace Server via the dynaTrace Server Settings menu -> Plugins -> Install Plugin. For details how to do this please refer to the [dynaTrace
-documentation](https://community.dynatrace.com/community/display/DOCDT41/Manage+and+Develop+Plugins#ManageandDevelopPlugins-ManageandDevelopPlugins).
+documentation]( https://community.compuwareapm.com/community/display/DOCDT40/Plugin+Management).
 
 ## Configuration
 
