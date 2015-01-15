@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor" name="DataPower Monitor">
+    <information>
+      <description value="The DataPower Monitor verifies availability and health of DataPower network devices." />
+      <license value="dynaTraceBSD.txt" />
+      <supportlevel value="unsupported" />
+      <category value="Remote" />
+    </information>
+    <configuration>
+      <property key="protocol" label="Protocol" type="list" description="Select the protocol that will be used to establish the connection. If 'https' is selected, a secure connection will be made using SSL." default="http">
+        <list>
+          <item value="http" />
+          <item value="https" />
+        </list>
+      </property>
+      <property key="httpPort" label="Port" type="long" description="Enter the port number of the webserver. The default HTTP port is 80." default="5550">
+        <visibility>
+          <rule key="protocol" value="http" />
+        </visibility>
+      </property>
+      <property key="httpsPort" label="Port" type="long" description="Enter the port number of the webserver. The default port for HTTP over SSL is 443." default="5550">
+        <visibility>
+          <rule key="protocol" value="https" />
+        </visibility>
+      </property>
+      <property key="path" label="SOMA Path" type="string" description="Enter the path to the SOMA Management Interface" default="/service/mgmt/current" />
+      <property key="postData" label="SOMA SOAP Envelope Template" type="string" description="SOMA SOAP Envelope Template - this is the default SOAP Envelope for the DataPower SOMA interface to the monitor classes.  The variable @SOMAMONITORCLASS@ will be replaced at runtime with the different class types (i.e. CPUUsage, ConnectionsAccepted, FileSystemStatus, etc ...).  Below is the runtime example for CPUUsage.  You need not change the default unless IBM changes the SOMA interface.&#xD;&#xA;&#xD;&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;env:Envelope xmlns:env=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;env:Body&gt;&lt;dp:request domain=&quot;default&quot;xmlns:dp=&quot;http://www.datapower.com/schemas/management&quot;&gt;&lt;dp:get-status class=&quot;CPUUsage&quot;/&gt;&lt;/dp:request&gt;&lt;/env:Body&gt;&lt;/env:Envelope&gt;" default="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;env:Envelope xmlns:env=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;&gt;&lt;env:Body&gt;&lt;dp:request domain=&quot;default&quot; xmlns:dp=&quot;http://www.datapower.com/schemas/management&quot;&gt;&lt;dp:get-status class=&quot;@SOMAMONITORCLASS@&quot;/&gt;&lt;/dp:request&gt;&lt;/env:Body&gt;&lt;/env:Envelope&gt;" />
+      <property key="httpVersion" label="HTTP version" type="list" description="The version of the HTTP protocol. HTTP/1.1 is the recommended." default="1.1">
+        <list>
+          <item value="1.1" />
+          <item value="1.0" />
+        </list>
+      </property>
+      <property key="userAgent" label="User-Agent" type="string" description="The user agent string identifies the HTTP client and is sent with every request." default="dynaTrace/4" />
+      <property key="maxRedirects" label="Max. redirects" type="long" description="If a value of 1 or greater is specified, the DataPower Monitor will follow HTTP redirect codes (301-303, 307) to retrieve the webpage." default="0" />
+      <property key="serverAuth" label="Server authorization" type="boolean" description="If DataPower requires a name and password for access, server authorization needs to be enabled." default="false" />
+      <property key="serverUsername" label="Server username" type="string" description="The username that is used for authorization with the server." default="">
+        <visibility>
+          <rule key="serverAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="serverPassword" label="Server password" type="password" description="The password for the username." default="">
+        <visibility>
+          <rule key="serverAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="useProxy" label="Proxy" type="boolean" description="If enabled, the configured HTTP proxy server will be used to access the DataPower." default="false" />
+      <property key="proxyHost" label="Proxy host" type="string" description="The hostname of the HTTP proxy server." default="">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyPort" label="Proxy port" type="long" description="The port of the HTTP proxy server." default="8080">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyAuth" label="Proxy authorization" type="boolean" description="If the HTTP proxy server requires a username and a password for access, proxy authorization needs to be enabled." default="false">
+        <visibility>
+          <rule key="useProxy" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyUsername" label="Proxy username" type="string" description="The username that is used for authorization with the HTTP proxy server." default="">
+        <visibility>
+          <rule key="proxyAuth" value="true" />
+        </visibility>
+      </property>
+      <property key="proxyPassword" label="Proxy password" type="password" description="The password for the proxy username." default="">
+        <visibility>
+          <rule key="proxyAuth" value="true" />
+        </visibility>
+      </property>
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor" name="DataPower Monitor">
+    <plugin class="DataPower.DataPowerMonitor" configid="com.dynatrace.diagnostics.plugin.DataPowerMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.AvailabilityMetrics" name="AvailabilityMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric name="HostReachable" description="If the host is reachable, the measure will yield 1, otherwise 0." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="HeaderSize" description="The size of the response header in bytes." unit="bytes" defaultrate="none" />
+      <metric name="FirstResponseDelay" description="The elapsed time in milliseconds from requesting the DataPower content until the first byte of the content has arrived." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ResponseCompleteTime" description="The elapsed time in milliseconds from requesting the DataPower content until the whole content has arrived." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ResponseSize" description="The size of the DataPower content in bytes." unit="bytes" defaultrate="none" />
+      <metric name="Throughput" description="The average achieved throughput (kilobytes/sec) during DataPower content retrieval." unit="kilobytes" defaultrate="sec" hidedisplayaggregation="sum count" />
+      <metric name="HttpStatusCode" description="The HTTP status code from the server response." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ConnectionCloseDelay" description="The elapsed time in milliseconds until the connection to the server has been closed." unit="ms" defaultrate="none" hidedisplayaggregation="sum count" />
+      <metric name="ContentVerified" description="If the content could be verified, the measure will yield 1, otherwise 0." unit="number" defaultrate="none" hidedisplayaggregation="sum count" />
+    </metricgroup>
+    <information>
+      <description value="Provides metrics to query performance data of a specific DataPower request." />
+    </information>
+  </extension>
+  <extension id="com.dynatrace.diagnostics.plugins.DataPowerPlugin.migrator" point="com.dynatrace.diagnostics.pdk.migrator">
+    <migration classname="DataPower.DataPowerMonitor" configid="com.dynatrace.diagnostics.plugins.DataPowerPlugin" maxSourceVersion="4.0.0.2562" minSourceVersion="1.0.0.0" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.ConnectionsAccepted" name="ConnectionsAcceptedMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric name="ConnectionsAccepted_tenSeconds" unit="number" description="tenSeconds" />
+      <metric name="ConnectionsAccepted_oneMinute" unit="number" description="ConnectionsAccepted_oneMinute" />
+      <metric name="ConnectionsAccepted_tenMinutes" unit="number" description="ConnectionsAccepted_oneMinute" />
+      <metric name="ConnectionsAccepted_oneHour" unit="number" description="ConnectionsAccepted_oneHour" />
+      <metric name="ConnectionsAccepted_oneDay" unit="number" description="ConnectionsAccepted_oneDay" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.CPUUsage" name="CPUUsageMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric name="CPUUsage_tenSeconds" unit="percent" description="CPUUsage_tenSeconds" />
+      <metric name="CPUUsage_oneMinute" unit="percent" description="CPUUsage_oneMinute" />
+      <metric name="CPUUsage_tenMinutes" unit="percent" description="CPUUsage_tenMinutes" />
+      <metric name="CPUUsage_oneHour" unit="percent" description="CPUUsage_oneHour" />
+      <metric name="CPUUsage_oneDay" unit="percent" description="CPUUsage_oneDay" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.DocumentCachingSummary" name="DocumentCachingSummaryMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric name="DocumentCachingSummary_CacheCount" unit="number" description="DocumentCachingSummary_CacheCount" />
+      <metric name="DocumentCachingSummary_DocCount" unit="number" description="DocumentCachingSummary_DocCount" />
+      <metric name="DocumentCachingSummary_CacheSize" unit="number" description="DocumentCachingSummary_CacheSize" />
+      <metric defaultrate="purepath" name="DocumentCachingSummary_ByteCount" unit="bytes" description="DocumentCachingSummary_ByteCount" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.EnvironmentalSensors" name="EnvironmentalSensorsMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="EnvironmentalSensors_systemTemp" unit="number" description="EnvironmentalSensors_systemTemp" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_CPU1Temp" unit="number" description="EnvironmentalSensors_CPU1Temp" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_CPU2Temp" unit="number" description="EnvironmentalSensors_CPU2Temp" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_CPU1RPM" unit="number" description="EnvironmentalSensors_CPU1RPM" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_CPU2RPM" unit="number" description="EnvironmentalSensors_CPU2RPM" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Chassis1RPM" unit="number" description="EnvironmentalSensors_Chassis1RPM" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Chassis2RPM" unit="number" description="EnvironmentalSensors_Chassis2RPM" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Chassis3RPM" unit="number" description="EnvironmentalSensors_Chassis3RPM" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_CaseOpen" unit="number" description="EnvironmentalSensors_CaseOpen" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Volt33" unit="number" description="EnvironmentalSensors_Volt33" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Volt12" unit="number" description="EnvironmentalSensors_Volt12" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_Volt5" unit="number" description="EnvironmentalSensors_Volt5" />
+      <metric defaultrate="purepath" name="EnvironmentalSensors_PowerSupplyOk" unit="number" description="EnvironmentalSensors_PowerSupplyOk" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.HTTPConnections" name="HTTPConnectionsMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="HTTPConnections_ReqTenSec" unit="number" description="HTTPConnections_ReqTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReqOneMin" unit="number" description="HTTPConnections_ReqOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReqTenMin" unit="number" description="HTTPConnections_ReqTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReqOneHr" unit="number" description="HTTPConnections_ReqOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReqOneDay" unit="number" description="HTTPConnections_ReqOneDay" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReuseTenSec" unit="number" description="HTTPConnections_ReuseTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReuseOneMin" unit="number" description="HTTPConnections_ReuseOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReuseTenMin" unit="number" description="HTTPConnections_ReuseTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReuseOneHr" unit="number" description="HTTPConnections_ReuseOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReuseOneDay" unit="number" description="HTTPConnections_ReuseOneDay" />
+      <metric defaultrate="purepath" name="HTTPConnections_CreateTenSec" unit="number" description="HTTPConnections_CreateTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_CreateOneMin" unit="number" description="HTTPConnections_CreateOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_CreateTenMin" unit="number" description="HTTPConnections_CreateTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_CreateOneHr" unit="number" description="HTTPConnections_CreateOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_CreateOneDay" unit="number" description="HTTPConnections_CreateOneDay" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReturnTenSec" unit="number" description="HTTPConnections_ReturnTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReturnOneMin" unit="number" description="HTTPConnections_ReturnOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReturnTenMin" unit="number" description="HTTPConnections_ReturnTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReturnOneHr" unit="number" description="HTTPConnections_ReturnOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_ReturnOneDay" unit="number" description="HTTPConnections_ReturnOneDay" />
+      <metric defaultrate="purepath" name="HTTPConnections_OfferTenSec" unit="number" description="HTTPConnections_OfferTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_OfferOneMin" unit="number" description="HTTPConnections_OfferOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_OfferTenMin" unit="number" description="HTTPConnections_OfferTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_OfferOneHr" unit="number" description="HTTPConnections_OfferOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_OfferOneDay" unit="number" description="HTTPConnections_OfferOneDay" />
+      <metric defaultrate="purepath" name="HTTPConnections_DestroyTenSec" unit="number" description="HTTPConnections_DestroyTenSec" />
+      <metric defaultrate="purepath" name="HTTPConnections_DestroyOneMin" unit="number" description="HTTPConnections_DestroyOneMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_DestroyTenMin" unit="number" description="HTTPConnections_DestroyTenMin" />
+      <metric defaultrate="purepath" name="HTTPConnections_DestroyOneHr" unit="number" description="HTTPConnections_DestroyOneHr" />
+      <metric defaultrate="purepath" name="HTTPConnections_DestroyOneDay" unit="number" description="HTTPConnections_DestroyOneDay" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.MemoryStatus" name="MemoryStatusMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="MemoryStatus_TotalMemory" unit="kilobytes" description="MemoryStatus_TotalMemory" />
+      <metric defaultrate="purepath" name="MemoryStatus_UsedMemory" unit="kilobytes" description="MemoryStatus_UsedMemory" />
+      <metric defaultrate="purepath" name="MemoryStatus_FreeMemory" unit="kilobytes" description="MemoryStatus_FreeMemory" />
+      <metric defaultrate="purepath" name="MemoryStatus_ReqMemory" unit="kilobytes" description="MemoryStatus_ReqMemory" />
+      <metric defaultrate="purepath" name="MemoryStatus_HoldMemory" unit="kilobytes" description="MemoryStatus_HoldMemory" />
+      <metric defaultrate="purepath" name="MemoryStatus_Usage" unit="number" description="MemoryStatus_Usage" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.FileSystemStatus" name="FileSystemStatusMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="FileSystemStatus_FreeEncrypted" unit="number" description="FileSystemStatus_FreeEncrypted" />
+      <metric defaultrate="purepath" name="FileSystemStatus_TotalEncrypted" unit="number" description="FileSystemStatus_TotalEncrypted" />
+      <metric defaultrate="purepath" name="FileSystemStatus_FreeTemporary" unit="number" description="FileSystemStatus_FreeTemporary" />
+      <metric defaultrate="purepath" name="FileSystemStatus_TotalTemporary" unit="number" description="FileSystemStatus_TotalTemporary" />
+      <metric defaultrate="purepath" name="FileSystemStatus_FreeInternal" unit="number" description="FileSystemStatus_FreeInternal" />
+      <metric defaultrate="purepath" name="FileSystemStatus_TotalInternal" unit="number" description="FileSystemStatus_TotalInternal" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.StylesheetCachingSummary" name="StylesheetCachingSummaryMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_CacheCount" unit="number" description="StylesheetCachingSummary_CacheCount" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_ReadyCount" unit="number" description="StylesheetCachingSummary_ReadyCount" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_CacheSize" unit="number" description="StylesheetCachingSummary_CacheSize" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_PendingCount" unit="number" description="StylesheetCachingSummary_PendingCount" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_BadCount" unit="number" description="StylesheetCachingSummary_BadCount" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_DupCount" unit="number" description="StylesheetCachingSummary_DupCount" />
+      <metric defaultrate="purepath" name="StylesheetCachingSummary_CacheKBCount" unit="kilobytes" description="StylesheetCachingSummary_CacheKBCount" />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor.EthernetInterfaceStatus" name="EthernetInterfaceStatusMeasures">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugin.DataPowerMonitor.monitor">
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_RxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth0_RxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_RxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth1_RxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_RxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_mgt0_RxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_RxPackets" unit="number" description="EthernetInterfaceStatus_eth0_RxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_RxPackets" unit="number" description="EthernetInterfaceStatus_eth1_RxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_RxPackets" unit="number" description="EthernetInterfaceStatus_mgt0_RxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_Status" unit="number" description="EthernetInterfaceStatus_mgt0_Status" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_Status" unit="number" description="EthernetInterfaceStatus_eth0_Status" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_Status" unit="number" description="EthernetInterfaceStatus_eth1_Status" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_RxErrors" unit="number" description="EthernetInterfaceStatus_eth0_RxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_RxDrops" unit="number" description="EthernetInterfaceStatus_eth0_RxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_TxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth0_TxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_TxPackets" unit="number" description="EthernetInterfaceStatus_eth0_TxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_TxErrors" unit="number" description="EthernetInterfaceStatus_eth0_TxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_TxDrops" unit="number" description="EthernetInterfaceStatus_eth0_TxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth0_Collisions" unit="number" description="EthernetInterfaceStatus_eth0_Collisions" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_RxErrors" unit="number" description="EthernetInterfaceStatus_eth1_RxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_RxDrops" unit="number" description="EthernetInterfaceStatus_eth1_RxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_TxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth1_TxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_TxPackets" unit="number" description="EthernetInterfaceStatus_eth1_TxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_TxErrors" unit="number" description="EthernetInterfaceStatus_eth1_TxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_TxDrops" unit="number" description="EthernetInterfaceStatus_eth1_TxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth1_Collisions" unit="number" description="EthernetInterfaceStatus_eth1_Collisions" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_RxErrors" unit="number" description="EthernetInterfaceStatus_mgt0_RxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_RxDrops" unit="number" description="EthernetInterfaceStatus_mgt0_RxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_TxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_mgt0_TxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_TxPackets" unit="number" description="EthernetInterfaceStatus_mgt0_TxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_TxErrors" unit="number" description="EthernetInterfaceStatus_mgt0_TxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_TxDrops" unit="number" description="EthernetInterfaceStatus_mgt0_TxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_mgt0_Collisions" unit="number" description="EthernetInterfaceStatus_mgt0_Collisions" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_Collisions" unit="number" description="EthernetInterfaceStatus_eth2_Collisions" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_Status" unit="number" description="EthernetInterfaceStatus_eth2_Status" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_RxPackets" unit="number" description="EthernetInterfaceStatus_eth2_RxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_RxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth2_RxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_RxErrors" unit="number" description="EthernetInterfaceStatus_eth2_RxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_RxDrops" unit="number" description="EthernetInterfaceStatus_eth2_RxDrops" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_TxKbytes" unit="kilobytes" description="EthernetInterfaceStatus_eth2_TxKbytes" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_TxPackets" unit="number" description="EthernetInterfaceStatus_eth2_TxPackets" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_TxErrors" unit="number" description="EthernetInterfaceStatus_eth2_TxErrors" />
+      <metric defaultrate="purepath" name="EthernetInterfaceStatus_eth2_TxDrops" unit="number" description="EthernetInterfaceStatus_eth2_TxDrops" />
+    </metricgroup>
+  </extension>
+</plugin>
+
